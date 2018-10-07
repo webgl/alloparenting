@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/alloparenting/static/media/parents.4b91fc1a.jpg"
   },
   {
-    "revision": "c780e068e9cfe31fb56b",
-    "url": "/alloparenting/static/css/main.1739ca83.chunk.css"
+    "revision": "5c40dac1e85767af10f5",
+    "url": "/alloparenting/static/css/main.e6794cc9.chunk.css"
   },
   {
     "revision": "38877720cf81f671b758",
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/alloparenting/static/media/family.6a29f8f4.jpg"
   },
   {
-    "revision": "c780e068e9cfe31fb56b",
-    "url": "/alloparenting/static/js/main.c780e068.chunk.js"
+    "revision": "5c40dac1e85767af10f5",
+    "url": "/alloparenting/static/js/main.5c40dac1.chunk.js"
   },
   {
     "revision": "0cc36bfac86b8104779911c77002e5a6",
@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "/alloparenting/static/media/profile.91e10669.png"
   },
   {
-    "revision": "bfe82accd1fd858b092b36da0363fe78",
+    "revision": "ba6f93216cfc574fa2ea6f8f3fd92dd4",
     "url": "/alloparenting/index.html"
   }
 ];
