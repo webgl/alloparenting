@@ -28,6 +28,13 @@
   left: 30px;
 }
 
+.profile .info h4 {
+  display: inline-block;
+  vertical-align: middle;
+  color: white;
+  padding-left: 10px;
+}
+
 .profile .picture {
   height: 80px;
   border-radius: 50%;
