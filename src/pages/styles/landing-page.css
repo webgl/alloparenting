@@ -1,3 +1,17 @@
+
+.logo {
+  height: 100px;
+  vertical-align: middle;
+}
+
+.login-button {
+  vertical-align: middle;
+  float: right;
+  font-size: 0.5em;
+  cursor: pointer;
+}
+
+
 .landing-page article {
   text-align: center;
   margin: auto;
@@ -5,7 +19,7 @@
   width: 90%;
   max-width: 750px;
   border-radius: 10px;
-  padding: 10px;
+  padding: 50px;
   margin-top: 50px;
 }
 

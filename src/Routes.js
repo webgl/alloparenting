@@ -12,34 +12,34 @@ import LandingPage from './pages/LandingPage';
 import Authenticate from './pages/Authenticate';
 import Discover from './pages/Discover';
 
-// import Alert from './components/alerts/alerts.jsx';
+import Alert from './components/alerts/alerts.jsx';
 
 // nothing works
 class AppMain extends Component {
 
-  constructor(props) {
-    super(props);
-    const { dispatch } = this.props;
-    history.listen((location, action) => {
-      dispatch(alertActions.clear());
-    });
-  }
+    constructor(props) {
+      super(props);
+      const { dispatch } = this.props;
+      history.listen((location, action) => {
+          dispatch(alertActions.clear());
+      });
+    }
 
-  render() {
-    const { alert } = this.props;
-    return (
-      <div className="Main">
-        {alert.message && <Alert alertType={alert.type}>{alert.message}</Alert>}
-        <Router history={history}>
-          <Switch>
-            <DefaultLayout path="/discover" component={Discover} />
-            <DefaultLayout path="/authenticate" component={Authenticate} />
-            <DefaultLayout path="/" component={LandingPage} />
-          </Switch>
-        </Router>
-      </div>
-    );
-  }
+    render() {
+        const { alert } = this.props;
+        return (
+            <div className="Main">
+                {alert.message && <Alert alertType={alert.type}>{alert.message}</Alert>}
+                <Router history={history}>
+                   <Switch>
+                       <DefaultLayout path="/discover" component={Discover}/>
+                       <DefaultLayout path="/authenticate" component={Authenticate}/>
+                       <DefaultLayout path="/" component={LandingPage}/>
+                    </Switch>
+                </Router>
+            </div>
+        );
+    }
 
 }
 

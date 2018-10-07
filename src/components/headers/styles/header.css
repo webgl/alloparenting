@@ -1,0 +1,12 @@
+
+header {
+  background: white;
+  text-align: right;
+  padding: 10px;
+}
+
+header a {
+  color: var(--primary-color);
+  cursor: pointer;
+  margin: 50px;
+}
