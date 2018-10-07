@@ -14,7 +14,11 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
+<<<<<<< HEAD
   "/alloparenting/precache-manifest.44f4ce6edfb3abb90b10dfc89ae09883.js"
+=======
+  "/alloparenting/precache-manifest.9ac9aaa6163d0aba4f7eafd9a8ec2bb1.js"
+>>>>>>> 4eff6a58b8ddfe0958f4c28b1c3529bff749a754
 );
 
 workbox.clientsClaim();
