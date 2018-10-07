@@ -8,12 +8,9 @@ const { THREE, TWEEN } = window;
 export default class Manager {
 
   constructor() {
-
-    this.state = {
-      cards: [],
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
+    this.cards = [];
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
 
     this.duration = 900;
     this.selectedCard = null;
@@ -22,7 +19,7 @@ export default class Manager {
   init(node) {
     if (this.scene) return;
 
-    const { width, height } = this.state;
+    const { width, height } = this;
 
     this.scene = new THREE.Scene();
 
@@ -53,8 +50,8 @@ export default class Manager {
   onWindowResize = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    this.state.width = width;
-    this.state.height = height;
+    this.width = width;
+    this.height = height;
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height);
@@ -65,7 +62,7 @@ export default class Manager {
   };
 
   createCards() {
-    const { width, height } = this.state;
+    const { width, height } = this;
 
     _.each(parentsData, (card, i) => {
       const cardElement = document.createElement('div');
@@ -85,7 +82,7 @@ export default class Manager {
       cardObject.position.y = Math.random() * spreadHeight - (spreadHeight / 2);
       cardObject.position.z = Math.random() * spreadDepth - (10 * i);
 
-      this.state.cards.push(cardObject);
+      this.cards.push(cardObject);
       this.scene.add(cardObject);
     });
   }
@@ -94,7 +91,7 @@ export default class Manager {
     const { duration, camera } = this;
     const cameraPosition = camera.position;
 
-    _.each(this.state.cards, card => card.element.classList.add(UNFOCUS_CLASS));
+    _.each(this.cards, card => card.element.classList.add(UNFOCUS_CLASS));
 
     if (this.selectedCard && this.selectedCard.originalPosition) {
       new TWEEN.Tween(this.selectedCard.position)
@@ -103,7 +100,7 @@ export default class Manager {
       .start();
     }
 
-    this.selectedCard = this.state.cards[cardId];
+    this.selectedCard = this.cards[cardId];
     this.selectedCard.originalPosition = { ...this.selectedCard.position };
     this.selectedCard.element.classList.remove(UNFOCUS_CLASS);
 
