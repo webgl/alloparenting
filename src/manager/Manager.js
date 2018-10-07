@@ -154,6 +154,8 @@ export default class Manager {
   };
 
   createCards(cards) {
+    this.scene.children = [];
+
     const { width, height } = this;
 
     _.each(cards, (card, i) => {
