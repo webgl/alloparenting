@@ -27,7 +27,6 @@ class Cards extends Component {
 
   render() {
     const { users } = this.state;
-    console.log(users);
     return (
       <div className="Cards" >
           { users.map( user => <Card key={user.email} name={user.name.first.toUpperCase()} picture={user.picture.large} gender={user.gender} location={user.location}/> ) }

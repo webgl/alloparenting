@@ -9,6 +9,12 @@
     padding-top: 30px;
 }
 
+.profile .background {
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+}
+
 .profile .picture {
   height: 80px;
   border-radius: 50%;
