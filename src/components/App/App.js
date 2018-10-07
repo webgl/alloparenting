@@ -42,6 +42,7 @@ class App extends Component {
     this.rootNode.appendChild(this.renderer.domElement);
 
     this.controls = new THREE.TrackballControls(this.camera, this.renderer.domElement);
+    this.controls.keys = [65, 83, 32];
     this.controls.noRotate = true;
 
     this.createCards();
