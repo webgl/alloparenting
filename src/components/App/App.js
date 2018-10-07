@@ -79,7 +79,7 @@ class App extends Component {
       cardElement.innerText = card.name;
       cardElement.onclick = e => {
         e.preventDefault();
-        this.transform(i);
+        this.transformCards(i);
       };
 
       const cardObject = new THREE.CSS3DObject(cardElement);
@@ -92,11 +92,21 @@ class App extends Component {
     });
   }
 
-  transform = (cardId) => {
+  rotateCard = (cardId) => {
+    const { duration } = this;
+    const card = this.state.cards[cardId];
+
+    new TWEEN.Tween(card.rotation)
+    .to({
+      y: Math.PI,
+    }, Math.random() * duration + duration)
+    .easing(TWEEN.Easing.Exponential.InOut)
+    .start();
+  };
+
+  transformCards = (cardId) => {
     const { duration } = this;
     const { cards } = this.state;
-
-    TWEEN.removeAll();
 
     _.each(cards, (card, i) => {
       if (cardId === i) {
