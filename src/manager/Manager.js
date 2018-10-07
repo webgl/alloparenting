@@ -28,9 +28,10 @@ export default class Manager {
 
   filter = () => {
     const { duration } = this;
+    const length = this.cards.length;
 
-    _.range(100)
-    .map(() => Math.random() * this.cards.length | 0)
+    _.range(length)
+    .map(() => Math.random() * length | 0)
     .forEach(idx => {
       new TWEEN.Tween(this.cards[idx].position)
       .to({
