@@ -5,8 +5,7 @@ import parentsData from '../../data/parents';
 import { Grid, Card } from '../components';
 import './App.css';
 
-const THREE = window.THREE;
-const TWEEN = window.TWEEN;
+const { THREE, TWEEN } = window;
 
 class App extends Component {
 
@@ -123,11 +122,6 @@ class App extends Component {
         .start();
       }
     });
-
-    new TWEEN.Tween(this)
-    .to({}, duration * 2)
-    .onUpdate(this.renderScene)
-    .start();
   };
 
   render() {

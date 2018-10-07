@@ -18,12 +18,13 @@ html, body {
 }
 
 body {
-  background-color: #F8F8F8;
+  background-color: #111111;
 }
 
 .card {
-  background: #FFFFFF;
-  border: 5px solid black;
+  border-radius: 2px;
+  background: #333333;
+  border: 3px solid black;
   text-align: center;
   cursor: default;
   transition: all 0.2s ease;
@@ -33,7 +34,8 @@ body {
 
 .card:hover {
   color: red;
-  border: 5px solid red;
+  border: 3px solid red;
+  padding: 110px 60px;
 }
 
 .card.unfocus {
