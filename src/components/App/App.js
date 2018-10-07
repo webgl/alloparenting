@@ -7,14 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Grid>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
-        </Grid>
+        <Card/>
       </div>
     );
   }
