@@ -11,13 +11,12 @@ var Style = {
 };
 
 const Layout = (props) => {
-    return (
-        <div className="layout" style={Style}>
-           <Loading/>
-           <Cards/>
-           {props.children}
-        </div>
-    )
+  return (
+    <div className="layout" style={Style}>
+      <Loading />
+      {props.children}
+    </div>
+  )
 };
 
 export default Layout

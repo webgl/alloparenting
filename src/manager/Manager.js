@@ -61,23 +61,20 @@ export default class Manager {
     this.renderer.render(this.scene, this.camera);
   };
 
-  createCards() {
+  createCards(cards) {
     const { width, height } = this;
 
-    _.each(parentsData, (card, i) => {
-      const cardElement = document.createElement('div');
-      cardElement.className = 'card';
-      cardElement.innerText = card.name;
-      cardElement.onclick = e => {
+    _.each(cards, (card, i) => {
+      card.onclick = e => {
         e.preventDefault();
         this.transformCard(i);
       };
 
-      const spreadWidth = width * 4,
-        spreadHeight = height,
-        spreadDepth = width * 3;
+      const spreadWidth = width * 6,
+        spreadHeight = height * 4,
+        spreadDepth = width * 6;
 
-      const cardObject = new THREE.CSS3DObject(cardElement);
+      const cardObject = new THREE.CSS3DObject(card);
       cardObject.position.x = Math.random() * spreadWidth - (spreadWidth / 2);
       cardObject.position.y = Math.random() * spreadHeight - (spreadHeight / 2);
       cardObject.position.z = Math.random() * spreadDepth - (10 * i);

@@ -12,19 +12,22 @@ class Discover extends Component {
     this.state = {
       users: []
     };
+
     this.cards = [];
     this.manager = new Manager();
   }
 
   componentDidMount() {
     this.manager.init(this.rootNode);
-    axios.get("https://randomuser.me/api/?results=100").then(
-      response => {
-        this.setState({ users: response.data.results })
-      }, error => {
-        console.log(error);
-      }
-    );
+
+    axios.get('https://randomuser.me/api/?results=100')
+    .then(response => {
+      this.setState({ users: response.data.results });
+    })
+    .then(() => {
+      this.manager.createCards(this.cards);
+    })
+    .catch(console.error)
   }
 
   render() {
@@ -32,13 +35,13 @@ class Discover extends Component {
     return (
       <div className="App"
            ref={(n => this.rootNode = n)}>
-           {users.map((user, i) => (
-             <div key={i} ref={n => this.cards[i] = n}>
-               <Card key={user.email} name={user.name.first.toUpperCase()}
-                     picture={user.picture.large} gender={user.gender}
-                     location={user.location} />
-             </div>
-           ))}
+        {users.map((user, i) => (
+          <div key={i} ref={n => this.cards[i] = n}>
+            <Card key={user.email} name={user.name.first.toUpperCase()}
+                  picture={user.picture.large} gender={user.gender}
+                  location={user.location} />
+          </div>
+        ))}
       </div>
     );
   }
