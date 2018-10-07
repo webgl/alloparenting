@@ -1,0 +1,50 @@
+html {
+  --primary-color: #74ebd5;
+  --secondary-color: #acb6e5;
+  --alert-success: lightgreen;
+  --alert-error: #FF5041;
+  --light-grey: #DFDFDF;
+  --faint-grey: #E5E5E5;
+  --dark-grey: #606060;
+}
+
+.App {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  /* font-family: 'EB Garamond', serif; */
+}
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 0.5em;
+}
+
+input, button, a, textarea, input[type=text], input[type=password]  {
+   font-family: Futura, 'Roboto', sans-serif;
+   border-radius: 0px;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   z-index: 100;
+   box-shadow: none !important;
+}
+
+button:focus {outline:0;}
+input:focus {outline:0;}
+textarea:focus {outline:0;}
+
+button {
+  background: var(--secondary-color);
+  border-radius: 10px;
+  border: 1px solid var(--secondary-color);
+  font-size: 1.0em;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+form {
+  padding: 20px;
+}
