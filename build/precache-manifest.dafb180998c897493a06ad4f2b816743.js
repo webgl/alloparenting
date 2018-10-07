@@ -4,12 +4,12 @@ self.__precacheManifest = [
     "url": "/alloparenting/static/media/parents.4b91fc1a.jpg"
   },
   {
-    "revision": "cd2f0e18af1501e8fbc9",
-    "url": "/alloparenting/static/css/main.8966dd63.chunk.css"
+    "revision": "6648fc92fef6490ca1cf",
+    "url": "/alloparenting/static/css/main.ed56e20d.chunk.css"
   },
   {
-    "revision": "10899d756f8de3b80276",
-    "url": "/alloparenting/static/js/1.10899d75.chunk.js"
+    "revision": "dc1cf3fd06b9beae8372",
+    "url": "/alloparenting/static/js/1.dc1cf3fd.chunk.js"
   },
   {
     "revision": "ed4921b6f32a4cc28950",
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/alloparenting/static/media/family.6a29f8f4.jpg"
   },
   {
-    "revision": "cd2f0e18af1501e8fbc9",
-    "url": "/alloparenting/static/js/main.cd2f0e18.chunk.js"
+    "revision": "6648fc92fef6490ca1cf",
+    "url": "/alloparenting/static/js/main.6648fc92.chunk.js"
   },
   {
     "revision": "0cc36bfac86b8104779911c77002e5a6",
@@ -44,7 +44,11 @@ self.__precacheManifest = [
     "url": "/alloparenting/static/media/vegas.2ee80f96.jpg"
   },
   {
-    "revision": "31c96bb99493378fc2ba53670c68c884",
+    "revision": "91e106694bc14a5dddea523157a8a817",
+    "url": "/alloparenting/static/media/profile.91e10669.png"
+  },
+  {
+    "revision": "0e9888638143f6523fa8eec42b0f9d14",
     "url": "/alloparenting/index.html"
   }
 ];
