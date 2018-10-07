@@ -36,7 +36,7 @@ class Discover extends Component {
            ref={(n => this.rootNode = n)}>
         {users.map((user, i) => (
           <div key={i} ref={n => this.cards[i] = n}>
-            <Card key={user.email} name={user.name.first.toUpperCase()}
+            <Card key={user.email} name={user.name.first}
                   picture={user.picture.large} gender={user.gender}
                   location={user.location} />
           </div>

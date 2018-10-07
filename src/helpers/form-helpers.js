@@ -8,7 +8,7 @@ export function handleInputChange(event) {
 }
 
 
-function capitalize(string) {
+export function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
@@ -31,7 +31,11 @@ const ACTIONS = [
   'help around the garden',
   'make a traditional Swahili dress',
   'have a chess match',
-  'make Italian Pasta'
+  'make Italian Pasta',
+  'do homework together',
+  'family movie night',
+  'snow shoeing Bandon Dunes',
+  'build a tree house'
 ];
 
 export function getRandomAction() {
