@@ -3,7 +3,6 @@ import _ from 'lodash';
 const UNFOCUS_CLASS = 'unfocus';
 const { THREE, TWEEN } = window;
 
-
 var container;
 var camera, scene, renderer;
 var mesh, geometry, material;
@@ -36,7 +35,7 @@ export default class Manager {
     this.scene = new THREE.Scene();
 
     this.camera = new THREE.PerspectiveCamera(40, width / height, 1, 10000);
-    this.camera.position.z = 2000;
+    this.camera.position.z = 9000;
 
     this.renderer = new THREE.CSS3DRenderer();
     this.renderer.setSize(width, height);
@@ -50,17 +49,8 @@ export default class Manager {
     this.animate();
 
     const canvas = document.createElement('canvas');
-    canvas.width = width;
-    canvas.height = height;
-
-    const context = canvas.getContext('2d');
-
-    const gradient = context.createLinearGradient(0, 0, 0, canvas.height);
-    gradient.addColorStop(0, "#1e4877");
-    gradient.addColorStop(0.5, "#4584b4");
-
-    context.fillStyle = gradient;
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    canvas.width = 128;
+    canvas.height = 128;
 
     geometry = new THREE.Geometry();
 
@@ -68,14 +58,14 @@ export default class Manager {
     texture.magFilter = THREE.LinearMipMapLinearFilter;
     texture.minFilter = THREE.LinearMipMapLinearFilter;
 
-    var fog = new THREE.Fog(0x4584b4, -100, 3000);
+    const fog = new THREE.Fog(0xffffff, -900, 3000);
 
     material = new THREE.ShaderMaterial({
       uniforms: {
-        "map": { type: "t", value: texture },
-        "fogColor": { type: "c", value: fog.color },
-        "fogNear": { type: "f", value: fog.near },
-        "fogFar": { type: "f", value: fog.far },
+        map: { type: 't', value: texture },
+        fogColor: { type: 'c', value: fog.color },
+        fogNear: { type: 'f', value: fog.near },
+        fogFar: { type: 'f', value: fog.far },
       },
       vertexShader,
       fragmentShader,
@@ -84,51 +74,33 @@ export default class Manager {
       transparent: true
     });
 
-    var plane = new THREE.Mesh(new THREE.PlaneGeometry(64, 64));
+    const plane = new THREE.Mesh(new THREE.PlaneGeometry(64, 64));
 
-    for (var i = 0; i < 8000; i++) {
-
+    for (let i = 0; i < 80000; i++) {
       plane.position.x = Math.random() * 1000 - 500;
-      plane.position.y = -Math.random() * Math.random() * 200 - 15;
+      plane.position.y = Math.random() * 500 - 225;
       plane.position.z = i;
       plane.rotation.z = Math.random() * Math.PI;
       plane.scale.x = plane.scale.y = Math.random() * Math.random() * 1.5 + 0.5;
-
       THREE.GeometryUtils.merge(geometry, plane);
     }
 
     mesh = new THREE.Mesh(geometry, material);
-    this.scene.add(mesh);
-
-    mesh = new THREE.Mesh(geometry, material);
-    mesh.position.z = -8000;
-    this.scene.add(mesh);
+    this.scene.add(this.clouds = mesh);
 
     renderer = new THREE.WebGLRenderer({ antialias: false });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0xd1efff, 1);
+    renderer.setSize(width, height);
     node.appendChild(renderer.domElement);
 
-    // document.addEventListener('mousemove', onDocumentMouseMove, false);
-    // window.addEventListener('resize', onWindowResize, false);
-
+    // document.addEventListener('mousemove', this.onDocumentMouseMove, false);
     window.addEventListener('resize', this.onWindowResize, false);
   }
 
-  // onDocumentMouseMove(event) {
-  //
-  //   mouseX = (event.clientX - windowHalfX) * 0.25;
-  //   mouseY = (event.clientY - windowHalfY) * 0.15;
-  //
-  // }
-  //
-  // onWindowResize(event) {
-  //
-  //   camera.aspect = window.innerWidth / window.innerHeight;
-  //   camera.updateProjectionMatrix();
-  //
-  //   renderer.setSize(window.innerWidth, window.innerHeight);
-  //
-  // }
+  onDocumentMouseMove = (event) => {
+    mouseX = (event.clientX - windowHalfX) * 0.25;
+    mouseY = (event.clientY - windowHalfY) * 0.15;
+  };
 
   animate = (t) => {
     requestAnimationFrame(this.animate);
@@ -136,10 +108,12 @@ export default class Manager {
     this.controls.update();
     this.renderScene();
 
-    const position = ((Date.now() - start_time) * 0.03) % 8000;
-    this.camera.position.x += (mouseX - this.camera.position.x) * 0.01;
-    this.camera.position.y += (-mouseY - this.camera.position.y) * 0.01;
-    this.camera.position.z = -position + 8000;
+    if (this.clouds) {
+      const position = ((Date.now() - start_time) * 0.01) % 8000;
+      this.clouds.position.x += (mouseX - this.clouds.position.x) * 0.01;
+      this.clouds.position.y += (-mouseY - this.clouds.position.y) * 0.01;
+      this.clouds.position.z = -position + 8000;
+    }
 
     _.each(this.cards, (card, i) => {
       if (card === this.selectedCard) return;
@@ -147,7 +121,8 @@ export default class Manager {
         card.position.x += Math.sin(t / 10000) * card.random;
         card.position.y += Math.cos(t / 10000) * card.random;
         card.position.z += Math.cos(t / 10000) * card.random;
-      } else {
+      }
+      else {
         card.position.x -= Math.sin(t / 10000) * card.random;
         card.position.y += Math.cos(t / 10000) * card.random;
         card.position.z += Math.cos(t / 10000) * card.random;
