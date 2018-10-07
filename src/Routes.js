@@ -12,7 +12,7 @@ import LandingPage from './pages/LandingPage';
 import Authenticate from './pages/Authenticate';
 import Discover from './pages/Discover';
 
-// import Alert from './components/alerts/alerts.jsx';
+import Alert from './components/alerts/alerts.jsx';
 
 // nothing works
 class AppMain extends Component {
@@ -32,10 +32,10 @@ class AppMain extends Component {
                 {alert.message && <Alert alertType={alert.type}>{alert.message}</Alert>}
                 <Router history={history}>
                    <Switch>
-                     <DefaultLayout path="/discover" component={Discover}/>
-                     <DefaultLayout path="/authenticate" component={Authenticate}/>
-                     <DefaultLayout path="/" component={LandingPage}/>
-                 </Switch>
+                       <DefaultLayout path="/discover" component={Discover}/>
+                       <DefaultLayout path="/authenticate" component={Authenticate}/>
+                       <DefaultLayout path="/" component={LandingPage}/>
+                    </Switch>
                 </Router>
             </div>
         );

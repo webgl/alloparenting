@@ -1,8 +1,8 @@
-
 import React, { Component } from 'react';
 import { changePage } from '../helpers';
 import Family from '../images/family.jpg';
 import Parents from '../images/parents.jpg';
+import Logo from '../images/logo.png'
 import CryingBaby from '../images/cryingbabyonplane.gif';
 
 import './styles/landing-page.css';
@@ -11,7 +11,10 @@ class Page extends Component {
    render() {
      return (
        <div className="landing-page">
-         <h1>alloparent.io</h1>
+         <h1>
+            <img className="logo" src={Logo} alt=""/>
+            <a className="login-button" onClick={() => changePage("/authenticate")}>LOGIN &#8594;</a>
+         </h1>
          <article>
            <h3>What if we gave our children a more engaging environment?</h3>
            <p>
