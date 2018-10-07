@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { alertActions } from '../actions'
-import { changePage } from '../helpers';
+import { changePage, handleInputChange } from '../helpers';
 
 import './styles/auth.css';
 
@@ -11,6 +11,7 @@ class Page extends Component {
     this.state ={
       login: false
     }
+    this.handleInputChange = handleInputChange.bind(this);
     this.toggleLogin = this.toggleLogin.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -27,33 +28,42 @@ class Page extends Component {
     if (login) {
       const { email, password } = this.state;
       changePage("/discover")
-      dispatch(alertActions.succes("Welcome!"))
+      dispatch(alertActions.success("Welcome!"))
+    } else {
+      const { email, password, confirm, zipcode, first, last } = this.state;
+      changePage("/discover")
+      dispatch(alertActions.success("Welcome Back"))
     }
   }
 
   render() {
-      const {login} = this.state;
+      const {login, email, password, confirm, zipcode, first, last} = this.state;
       if (login) {
         return (
           <div className="auth">
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <h1>Login</h1>
               <p>Never been here? <button onClick={this.toggleLogin}>Signup</button></p>
               <label>email</label><input placeholder="user@x.com"/>
               <label>password</label><input type="password" placeholder="******" />
+              <button>submit</button>
             </form>
           </div>
         );
       } else {
          return (
            <div className="auth">
-             <form>
+             <form onSubmit={this.handleSubmit}>
                <h1>Signup</h1>
                <p>Been here before? <button onClick={this.toggleLogin}>Login</button></p>
-                  <label>first name</label><input placeholder="Dr. Shrimp"/>
-                  <label>last name</label><input placeholder="Puerto Rico"/>
-                  <label>email</label><input placeholder="shrimp@dill.com"/>
-                  <label>zipcode</label><input placeholder="44444"/>
+                  <label>first name</label>
+                  <input name="first" value={first} placeholder="Dr. Shrimp" onChange={this.handleInputChange}/>
+                  <label>last name</label><input name="last" value={last} placeholder="Puerto Rico" onChange={this.handleInputChange}/>
+                  <label>email</label><input name="email" value={email} placeholder="shrimp@dill.com" onChange={this.handleInputChange}/>
+                  <label>zipcode</label><input name="zipcode" value={zipcode} placeholder="44444" onChange={this.handleInputChange}/>
+                  <label>password</label><input name="password" value={password} type="password" placeholder="*****" onChange={this.handleInputChange}/>
+                  <label>confirm</label><input type="password" name="confirm" value={confirm} placeholder="*****" onChange={this.handleInputChange}/>
+                  <button>submit</button>
              </form>
            </div>
          );

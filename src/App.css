@@ -6,6 +6,7 @@ html {
   --light-grey: #DFDFDF;
   --faint-grey: #E5E5E5;
   --dark-grey: #606060;
+  background: var(--secondary-color); /* fallback for old browsers */
 }
 
 .App {

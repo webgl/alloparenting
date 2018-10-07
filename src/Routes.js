@@ -4,8 +4,6 @@ import { Switch, Router} from 'react-router-dom';
 import { history } from './helpers';
 import { alertActions } from './actions/';
 
-import Alerts from './components/Alerts/Alerts';
-
 // Route Layouts
 import DefaultLayout from './layouts/DefaultLayout';
 
@@ -13,6 +11,8 @@ import DefaultLayout from './layouts/DefaultLayout';
 import LandingPage from './pages/LandingPage';
 import Authenticate from './pages/Authenticate';
 import Discover from './pages/Discover';
+
+import Alert from './components/alerts/alerts.jsx';
 
 // nothing works
 class AppMain extends Component {
@@ -29,7 +29,7 @@ class AppMain extends Component {
         const { alert } = this.props;
         return (
             <div className="Main">
-                {alert.message && <Alerts alertType={alert.type}>{alert.message}</Alerts>}
+                {alert.message && <Alert alertType={alert.type}>{alert.message}</Alert>}
                 <Router history={history}>
                    <Switch>
                      <DefaultLayout path="/discover" component={Discover}/>
