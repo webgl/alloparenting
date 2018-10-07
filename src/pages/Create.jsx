@@ -35,15 +35,9 @@ class Page extends Component {
 
    selectPic(select) {
      const { picture } = this.state;
-     if (select === picture) {
-         this.setState({
-           picture: ''
-         })
-     } else {
-       this.setState({
-         picture: select
-       })
-     }
+     this.setState({
+       picture: (select === picture)? '': select
+     })
    }
 
    render() {
