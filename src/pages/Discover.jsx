@@ -123,8 +123,6 @@ class Discover extends Component {
     return (
       <div className="App"
            ref={(n => this.rootNode = n)}>
-        <Grid>
-        </Grid>
       </div>
     );
   }
