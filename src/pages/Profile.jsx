@@ -31,7 +31,7 @@ class Page extends Component {
            <img className="profile-picture" src={Profile}/>
            {editing?
              <div>
-               <h2>Pickle Rick</h2>
+               <h2>Miras Ashktorabbbbbbbba</h2>
                <p>Active user for 2 days</p>
                <label>edit your tag below</label>
                <textarea type="text-area" onChange={this.handleInputChange} value={description} name="description" placeholder="I am ..."/>
