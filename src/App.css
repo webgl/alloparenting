@@ -75,3 +75,7 @@ label {
   display: block;
   font-size: 1.0em;
 }
+
+.page {
+  padding-top: 100px;
+}

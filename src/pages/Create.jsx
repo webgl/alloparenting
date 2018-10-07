@@ -29,6 +29,7 @@ class Page extends Component {
    handleSubmit(event) {
      const { dispatch } = this.props;
      event.preventDefault();
+     changePage('/discover');
      dispatch(alertActions.success("Experience created!"))
    }
 
@@ -48,7 +49,7 @@ class Page extends Component {
    render() {
      const { picture } = this.state;
      return (
-       <div className="create">
+       <div className="page create">
           <Header/>
           <form onSubmit={this.handleSubmit}>
             <h1>Create a New Experience</h1>
