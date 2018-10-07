@@ -61,8 +61,6 @@ export default class Manager {
 
     context.fillStyle = gradient;
     context.fillRect(0, 0, canvas.width, canvas.height);
-    node.style.background = 'url(' + canvas.toDataURL('image/png') + ')';
-    node.style.backgroundSize = '32px 100%';
 
     geometry = new THREE.Geometry();
 
@@ -131,26 +129,17 @@ export default class Manager {
   //   renderer.setSize(window.innerWidth, window.innerHeight);
   //
   // }
-  //
-  // animate() {
-  //
-  //   requestAnimationFrame(animate);
-  //
-  //   position = ((Date.now() - start_time) * 0.03) % 8000;
-  //
-  //   camera.position.x += (mouseX - camera.position.x) * 0.01;
-  //   camera.position.y += (-mouseY - camera.position.y) * 0.01;
-  //   camera.position.z = -position + 8000;
-  //
-  //   renderer.render(scene, camera);
-  //
-  // }
 
   animate = (t) => {
     requestAnimationFrame(this.animate);
     TWEEN.update();
     this.controls.update();
     this.renderScene();
+
+    const position = ((Date.now() - start_time) * 0.03) % 8000;
+    this.camera.position.x += (mouseX - this.camera.position.x) * 0.01;
+    this.camera.position.y += (-mouseY - this.camera.position.y) * 0.01;
+    this.camera.position.z = -position + 8000;
 
     _.each(this.cards, (card, i) => {
       if (card === this.selectedCard) return;
