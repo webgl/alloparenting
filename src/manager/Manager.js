@@ -6,15 +6,14 @@ const { THREE, TWEEN } = window;
 import vertexShader from './vertex-shader';
 import fragmentShader from './fragment-shader';
 
-var container;
-var camera, scene, renderer;
-var mesh, geometry, material;
 
-var mouseX = 0, mouseY = 0;
-var start_time = Date.now();
+const badass = false;
 
-var windowHalfX = window.innerWidth / 2;
-var windowHalfY = window.innerHeight / 2;
+let mesh, geometry, material, renderer;
+let mouseX = 0, mouseY = 0;
+let start_time = Date.now();
+const windowHalfX = window.innerWidth / 2;
+const windowHalfY = window.innerHeight / 2;
 
 export default class Manager {
 
@@ -48,6 +47,16 @@ export default class Manager {
     this.createCards();
     this.animate();
 
+    // document.addEventListener('mousemove', this.onDocumentMouseMove, false);
+    window.addEventListener('resize', this.onWindowResize, false);
+
+    if (badass) {
+      this.letThereBeLight(node);
+    }
+  }
+
+  letThereBeLight = (node) => {
+    const { width, height } = this;
     const canvas = document.createElement('canvas');
     canvas.width = 128;
     canvas.height = 128;
@@ -92,10 +101,7 @@ export default class Manager {
     renderer.setClearColor(0xddeeff, 1);
     renderer.setSize(width, height);
     node.appendChild(renderer.domElement);
-
-    // document.addEventListener('mousemove', this.onDocumentMouseMove, false);
-    window.addEventListener('resize', this.onWindowResize, false);
-  }
+  };
 
   onDocumentMouseMove = (event) => {
     mouseX = (event.clientX - windowHalfX) * 0.25;
@@ -174,6 +180,8 @@ export default class Manager {
   transformCard = (cardId) => {
     const { duration, camera } = this;
     const cameraPosition = camera.position;
+
+    TWEEN.removeAll();
 
     _.each(this.cards, card => card.element.classList.add(UNFOCUS_CLASS));
 
