@@ -13,8 +13,7 @@ class Page extends Component {
        <div className="landing-page">
          <h1>
             <img className="logo" src={Logo} alt=""/>
-            <a className="login-button" onClick={() => changePage("/authenticate")}>LOGIN</a>
-            <a className="login-button" onClick={() => changePage("/create")}>Sign Up</a>
+            <a className="login-button" onClick={() => changePage("/authenticate")}>login</a>
          </h1>
          <article>
            <h3>What if we gave our children a more engaging environment?</h3>

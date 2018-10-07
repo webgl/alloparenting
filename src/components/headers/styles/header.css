@@ -27,3 +27,7 @@ header img {
   height: 30px;
   float: left;
 }
+
+header .logout {
+  color: var(--light-grey);
+}

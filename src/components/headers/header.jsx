@@ -11,6 +11,7 @@ function Header() {
       <a onClick={() => changePage("/discover")}>Discover</a>
       <a onClick={() => changePage("/create")}>Create</a>
       <a onClick={() => changePage("/profile")}>Profile</a>
+      <a className="logout" onClick={() => changePage("/")}>logout</a>
     </header>
   )
 }

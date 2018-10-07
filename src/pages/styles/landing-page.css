@@ -5,24 +5,16 @@
 }
 
 .login-button {
-  vertical-align: middle;
+  font-size: 0.3em;
+  font-family: 'Lato', sans-serif;
+  color: var(--light-grey);
   float: right;
-  font-size: 0.5em;
-  cursor: pointer;
-  color: black; 
-  margin-right: 50px;
-  background-color: var(--secondary-color);
   padding: 10px;
-  border-radius: 20px;
-  box-shadow: 21px 19px 20px -3px rgba(0,0,0,0.76);
-  -webkit-box-shadow: 21px 19px 20px -3px rgba(0,0,0,0.76);
-  -moz-box-shadow: 21px 19px 20px -3px rgba(0,0,0,0.76);
 }
 
-.login-button:hover { 
-  color: white;
+.login-button:hover {
+  border-bottom: 1px solid var(--light-grey);
 }
-
 
 .landing-page article {
   text-align: center;
