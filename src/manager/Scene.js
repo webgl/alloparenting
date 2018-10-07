@@ -1,4 +1,6 @@
-class Scene extends THREE.Scene {
+const { THREE } = window;
+
+export default class Scene extends THREE.Scene {
 
   constructor(width, height) {
 
