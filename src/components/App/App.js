@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 
 import parentsData from '../../data/parents';
 import { Grid, Card } from '../components';
-import './App.css';
 
 const { THREE, TWEEN } = window;
 
