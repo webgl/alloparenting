@@ -12,7 +12,7 @@ import LandingPage from './pages/LandingPage';
 import Authenticate from './pages/Authenticate';
 import Discover from './pages/Discover';
 
-import Alert from './components/alerts/alerts.jsx';
+// import Alert from './components/alerts/alerts.jsx';
 
 // nothing works
 class AppMain extends Component {
