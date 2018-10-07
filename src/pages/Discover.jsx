@@ -29,7 +29,6 @@ class Discover extends Component {
 
   render() {
     const { users } = this.state;
-    this.cards = [];
     return (
       <div className="App"
            ref={(n => this.rootNode = n)}>
@@ -39,6 +38,7 @@ class Discover extends Component {
             <Card key={user.email} name={user.name.first}
                   picture={user.picture.large} gender={user.gender}
                   location={user.location} />
+            <button onClick={this.manager.filter}></button>
           </div>
         ))}
       </div>

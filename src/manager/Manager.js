@@ -26,6 +26,26 @@ export default class Manager {
     this.selectedCard = null;
   }
 
+  filter = () => {
+    const { duration } = this;
+
+    _.range(100)
+    .map(() => Math.random() * this.cards.length | 0)
+    .forEach(idx => {
+      new TWEEN.Tween(this.cards[idx].position)
+      .to({
+        x: Math.random() * 1000000,
+        y: Math.random() * 1000000,
+        z: -Math.random() * 1000000
+      }, duration * 10)
+      .onComplete(() => {
+        this.scene.remove(this.cards[idx]);
+      })
+      .easing(TWEEN.Easing.Exponential.InOut)
+      .start();
+    })
+  };
+
   init(node) {
     if (this.scene) return;
 
@@ -47,7 +67,6 @@ export default class Manager {
     this.createCards();
     this.animate();
 
-    // document.addEventListener('mousemove', this.onDocumentMouseMove, false);
     window.addEventListener('resize', this.onWindowResize, false);
 
     if (badass) {
@@ -154,8 +173,6 @@ export default class Manager {
   };
 
   createCards(cards) {
-    this.scene.children = [];
-
     const { width, height } = this;
 
     _.each(cards, (card, i) => {
