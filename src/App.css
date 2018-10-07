@@ -71,6 +71,7 @@ input::placeholder {
 }
 
 label {
+  color: var(--dark-grey);
   display: block;
   font-size: 1.0em;
 }

@@ -1,0 +1,27 @@
+
+.extended {
+  width: 400px;
+}
+
+.create input {
+  font-size: 1.4em;
+}
+
+.create button {
+  background: var(--primary-color);
+  border: none;
+  width: 80%;
+  margin-top: 30px;
+}
+
+
+.create .select-pic {
+  padding: 10px;
+}
+
+.create .select-pic img {
+  width: 100px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 20px;
+}

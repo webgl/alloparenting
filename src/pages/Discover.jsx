@@ -11,7 +11,6 @@ class Discover extends Component {
     this.state = {
       users: []
     };
-
     this.cards = [];
     this.manager = new Manager();
   }
