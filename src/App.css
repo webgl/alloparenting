@@ -8,6 +8,7 @@ html {
   --dark-grey: #606060;
   --card: #e8f0ff;
   --prof-border: #EFEFEF;
+  --prof: #F6F7FF;
   background: var(--secondary-color); /* fallback for old browsers */
 }
 

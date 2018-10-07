@@ -1,5 +1,6 @@
 .profile {
-    background-color: white;
+    position: relative;
+    background: transparent;
     width: 300px;
     height: 500px;
     margin: auto;
@@ -10,9 +11,12 @@
 }
 
 .profile .background {
+  position: absolute;
   border-radius: 10px;
+  border: 10px solid var(--prof);
+  height: 100%;
+  width: 100%;
   display: block;
-  margin: auto;
 }
 
 .profile .picture {
