@@ -8,6 +8,10 @@ import Halloween from '../images/halloween.jpg';
 import Vegas from '../images/vegas.jpg';
 import './styles/create.css';
 
+const FISHERMAN = "FISHERMAN";
+const HALLOWEEN = "HALLOWEEN";
+const VEGAS = "VEGAS";
+
 class Page extends Component {
    constructor(props) {
      super(props);
@@ -15,9 +19,11 @@ class Page extends Component {
        title: '',
        description: '',
        image: '',
-       duration: ''
+       duration: '',
+       picture: ''
      }
      this.handleSubmit = this.handleSubmit.bind(this);
+     this.selectPic = this.selectPic.bind(this);
    }
 
    handleSubmit(event) {
@@ -26,7 +32,21 @@ class Page extends Component {
      dispatch(alertActions.success("Experience created!"))
    }
 
+   selectPic(select) {
+     const { picture } = this.state;
+     if (select === picture) {
+         this.setState({
+           picture: ''
+         })
+     } else {
+       this.setState({
+         picture: select
+       })
+     }
+   }
+
    render() {
+     const { picture } = this.state;
      return (
        <div className="create">
           <Header/>
@@ -38,9 +58,9 @@ class Page extends Component {
             <label>duration</label><input placeholder="2 hours"/>
             <label>select your picture</label>
             <div className="select-pic">
-              <img src={Fisherman} alt=""/>
-              <img src={Halloween} alt=""/>
-              <img src={Vegas} alt=""/>
+              <img className={(picture === FISHERMAN)? "selected":""} onClick={() => this.selectPic(FISHERMAN)} src={Fisherman} alt=""/>
+              <img className={(picture === HALLOWEEN)? "selected":""} onClick={() => this.selectPic(HALLOWEEN)} src={Halloween} alt=""/>
+              <img className={(picture === VEGAS)? "selected":""} onClick={() => this.selectPic(VEGAS)} src={Vegas} alt=""/>
             </div>
             <button>submit</button>
           </form>

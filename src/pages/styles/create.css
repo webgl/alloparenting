@@ -14,6 +14,10 @@
   margin-top: 30px;
 }
 
+.create .selected {
+  border: 5px solid var(--alert-success);
+}
+
 
 .create .select-pic {
   padding: 10px;
