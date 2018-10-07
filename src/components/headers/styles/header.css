@@ -21,6 +21,7 @@ header a {
 header .search {
   display: inline-block;
   margin: 0;
+  font-size: 1.0em;
 }
 
 header .search-button {
