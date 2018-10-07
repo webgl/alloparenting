@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Switch, Router} from 'react-router-dom';
+import { Switch, Router } from 'react-router-dom';
 import { history } from './helpers';
 import { alertActions } from './actions/';
 
@@ -44,10 +44,10 @@ class AppMain extends Component {
 }
 
 function mapStateToProps(state) {
-    const { alert } = state;
-    return {
-        alert
-    };
+  const { alert } = state;
+  return {
+    alert
+  };
 }
 
 const App = connect(mapStateToProps)(AppMain);

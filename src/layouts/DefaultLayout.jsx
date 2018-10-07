@@ -4,14 +4,14 @@ import Layout from './Layout';
 
 import './layouts.css';
 
-const DefaultLayout = ({component: Component, ...rest}) => {
-    return (
-        <Route {...rest} render={matchProps => (
-           <Layout>
-              <Component {...matchProps} />
-           </Layout>
-        )}/>
-    )
+const DefaultLayout = ({ component: Component, ...rest }) => {
+  return (
+    <Route {...rest} render={matchProps => (
+      <Layout>
+        <Component {...matchProps} />
+      </Layout>
+    )} />
+  )
 };
 
 export default DefaultLayout
