@@ -1,6 +1,6 @@
 
 
-class _App {
+class app {
 
   constructor() {
 
@@ -57,4 +57,4 @@ class _App {
 
 
 
-new _App();
+new app();
