@@ -32,13 +32,9 @@
   height: 80px;
   border-radius: 50%;
   border: 5px solid var(--prof-border);
-<<<<<<< HEAD
-}
-=======
 }
 
 .profile .info h1 {
   text-align: left;
   color: white;
 }
->>>>>>> bfa3a470978a5df4b7d7955205270c8ccbb527d8
