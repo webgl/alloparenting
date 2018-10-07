@@ -1,41 +1,18 @@
 import React, { Component } from 'react';
+import faker from 'faker';
 
-import './Card.css';
+import './Card.css'
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstname: '',
-      lastName: '',
-      img:'',
-      bio: '',
-      twitter: '',
-      facebook: '',
-      linkedin: '',
-      youtube: '',
-      instagram: '',
-      errors: {}
-    };
-  }
-
-  render() {
-
-    const { user } = this.props.auth;
-    const { profile, loading } = this.props.profile;
-      
-
-    return (
-      <div className="Card" >
-          <div className="firstHalf">
-            <img src={this.props.obj.image} alt="hello image" height="200" width="200"/>
-            <h1>{firstname}{lastName}</h1>
-            
-          </div>
+function Card(props) {
+  const { name, picture, gender, location } = props;
+  return (
+    <div className="profile">
+      <div className="top-part">
+        <img src={picture} className="picture"/>
+        <img src={'https://picsum.photos/200/300/?random'} className="background"/>
       </div>
-    );
-  }
+    </div>
+  )
 }
 
-
-export default App;
+export default Card;

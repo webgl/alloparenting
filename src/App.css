@@ -6,6 +6,8 @@ html {
   --light-grey: #DFDFDF;
   --faint-grey: #E5E5E5;
   --dark-grey: #606060;
+  --card: #e8f0ff;
+  --prof-border: #EFEFEF;
   background: var(--secondary-color); /* fallback for old browsers */
 }
 

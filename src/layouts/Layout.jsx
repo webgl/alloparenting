@@ -1,6 +1,6 @@
 import React from 'react';
 import Loading from '../components/loading/Loading';
-
+import Cards from '../components/Cards/Cards';
 import './layouts.css';
 
 var Style = {
@@ -14,6 +14,7 @@ const Layout = (props) => {
     return (
         <div className="layout" style={Style}>
            <Loading/>
+           <Cards/>
            {props.children}
         </div>
     )
