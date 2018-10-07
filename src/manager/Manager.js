@@ -38,11 +38,24 @@ export default class Manager {
     window.addEventListener('resize', this.onWindowResize, false);
   }
 
-  animate = () => {
+  animate = (t) => {
     requestAnimationFrame(this.animate);
     TWEEN.update();
     this.controls.update();
     this.renderScene();
+
+    _.each(this.cards, (card, i) => {
+      if (card === this.selectedCard) return;
+      if (i % 2 === 0) {
+        card.position.x += Math.sin(t / 10000) * card.random;
+        card.position.y += Math.cos(t / 10000) * card.random;
+        card.position.z += Math.cos(t / 10000) * card.random;
+      } else {
+        card.position.x -= Math.sin(t / 10000) * card.random;
+        card.position.y += Math.cos(t / 10000) * card.random;
+        card.position.z += Math.cos(t / 10000) * card.random;
+      }
+    });
   };
 
   onWindowResize = () => {
@@ -73,6 +86,7 @@ export default class Manager {
         spreadDepth = width * 6;
 
       const cardObject = new THREE.CSS3DObject(card);
+      cardObject.random = Math.random() / 2;
       cardObject.position.x = Math.random() * spreadWidth - (spreadWidth / 2);
       cardObject.position.y = Math.random() * spreadHeight - (spreadHeight / 2);
       cardObject.position.z = Math.random() * spreadDepth - (10 * i);
