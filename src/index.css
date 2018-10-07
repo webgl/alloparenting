@@ -6,6 +6,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 code {
@@ -39,5 +40,6 @@ body {
 }
 
 .card.unfocus {
-  opacity: 0.2;
+  background: #111111;
+  color: #333333;
 }

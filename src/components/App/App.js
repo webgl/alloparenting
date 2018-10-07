@@ -19,6 +19,7 @@ class App extends Component {
     };
 
     this.duration = 900;
+    this.selectedCard = null;
   }
 
   componentDidMount() {
@@ -40,12 +41,11 @@ class App extends Component {
     this.rootNode.appendChild(this.renderer.domElement);
 
     this.controls = new THREE.TrackballControls(this.camera, this.renderer.domElement);
-    this.controls.rotateSpeed = 0.5;
+    this.controls.noRotate = true;
 
     this.createCards();
     this.animate();
 
-    this.controls.addEventListener('change', this.renderScene);
     window.addEventListener('resize', this.onWindowResize, false);
   }
 
@@ -63,7 +63,6 @@ class App extends Component {
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height);
-    this.renderScene();
   };
 
   renderScene = () => {
@@ -71,7 +70,7 @@ class App extends Component {
   };
 
   createCards() {
-    const { width, height, cards } = this.state;
+    const { width, height } = this.state;
 
     _.each(parentsData, (card, i) => {
       const cardElement = document.createElement('div');
@@ -79,59 +78,41 @@ class App extends Component {
       cardElement.innerText = card.name;
       cardElement.onclick = e => {
         e.preventDefault();
-        this.transformCards(i);
+        this.transformCard(i);
       };
 
+      const spreadWidth = width * 4,
+        spreadHeight = height,
+        spreadDepth = width * 3;
+
       const cardObject = new THREE.CSS3DObject(cardElement);
-      cardObject.position.x = Math.random() * width - (width / 2);
-      cardObject.position.y = Math.random() * height - (height / 2);
-      cardObject.position.z = Math.random() * width - (10 * i);
+      cardObject.position.x = Math.random() * spreadWidth - (spreadWidth / 2);
+      cardObject.position.y = Math.random() * spreadHeight - (spreadHeight / 2);
+      cardObject.position.z = Math.random() * spreadDepth - (10 * i);
 
       this.state.cards.push(cardObject);
       this.scene.add(cardObject);
     });
   }
 
-  rotateCard = (cardId) => {
-    const { duration } = this;
-    const card = this.state.cards[cardId];
+  transformCard = (cardId) => {
+    const { duration, camera } = this;
+    const cameraPosition = camera.position;
 
-    new TWEEN.Tween(card.rotation)
-    .to({
-      y: Math.PI,
-    }, Math.random() * duration + duration)
+    if (this.selectedCard && this.selectedCard.originalPosition) {
+      new TWEEN.Tween(this.selectedCard.position)
+      .to(this.selectedCard.originalPosition, duration)
+      .easing(TWEEN.Easing.Exponential.InOut)
+      .start();
+    }
+
+    this.selectedCard = this.state.cards[cardId];
+    this.selectedCard.originalPosition = { ...this.selectedCard.position };
+
+    new TWEEN.Tween(this.selectedCard.position)
+    .to({ ...cameraPosition, z: cameraPosition.z - 500 }, duration)
     .easing(TWEEN.Easing.Exponential.InOut)
     .start();
-  };
-
-  transformCards = (cardId) => {
-    const { duration } = this;
-    const { cards } = this.state;
-
-    _.each(cards, (card, i) => {
-      if (cardId === i) {
-        card.originalPosition = { ...card.position };
-        card.element.classList.remove('unfocus');
-        new TWEEN.Tween(card.position)
-        .to({
-          x: 0,
-          y: 0,
-          z: 800
-        }, Math.random() * duration + duration)
-        .easing(TWEEN.Easing.Exponential.InOut)
-        .start();
-      }
-      else {
-        card.element.classList.add('unfocus');
-        new TWEEN.Tween(card.position)
-        .to({
-          ...card.originalPosition,
-          z: -100
-        }, Math.random() * duration + duration)
-        .easing(TWEEN.Easing.Exponential.InOut)
-        .start();
-      }
-    });
   };
 
   render() {
