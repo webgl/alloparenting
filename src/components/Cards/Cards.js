@@ -17,12 +17,11 @@ class Cards extends Component {
   }
 
   componentDidMount() {
-    const { dispatch } = this.props;
     axios.get("https://randomuser.me/api/?results=100").then(
       response => {
         this.setState({ users: response.data.results })
       }, error => {
-        dispatch(alertActions.error(handleError(error)))
+        console.log(error);
       }
     );
   }
