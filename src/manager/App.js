@@ -1,6 +1,4 @@
-
-
-class app {
+export default class App {
 
   constructor() {
 
@@ -50,11 +48,3 @@ class app {
   }
 
 }
-
-
-
-
-
-
-
-new app();
