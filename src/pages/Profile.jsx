@@ -29,18 +29,16 @@ class Page extends Component {
          <Header/>
          <form onSubmit={this.toggleEdit}>
            <img className="profile-picture" src={Profile}/>
+           <h2>Miras Ashktorab</h2>
+           <p>Active user for 2 days</p>
            {editing?
              <div>
-               <h2>Miras Ashktorabbbbbbbba</h2>
-               <p>Active user for 2 days</p>
                <label>edit your tag below</label>
                <textarea type="text-area" onChange={this.handleInputChange} value={description} name="description" placeholder="I am ..."/>
                <button>submit</button>
              </div>
              :
              <div>
-                 <h2>Pickle Rick</h2>
-                 <p>Active user for 2 days</p>
                  <p>Posted 12 experiences</p>
                  <label>about me</label>
                  <div className="description">

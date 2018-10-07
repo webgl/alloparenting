@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "/alloparenting/static/media/profile.91e10669.png"
   },
   {
-    "revision": "f706153e0402806e33e8dbbb285aca86",
+    "revision": "deaeb18796f2ac5e410ec2f913e98b55",
     "url": "/alloparenting/index.html"
   }
 ];
