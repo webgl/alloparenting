@@ -5,6 +5,7 @@ import parentsData from '../../data/parents';
 import { Grid, Card } from '../components';
 import './App.css';
 
+const UNFOCUS_CLASS = 'unfocus';
 const { THREE, TWEEN } = window;
 
 class App extends Component {
@@ -99,6 +100,8 @@ class App extends Component {
     const { duration, camera } = this;
     const cameraPosition = camera.position;
 
+    _.each(this.state.cards, card => card.element.classList.add(UNFOCUS_CLASS));
+
     if (this.selectedCard && this.selectedCard.originalPosition) {
       new TWEEN.Tween(this.selectedCard.position)
       .to(this.selectedCard.originalPosition, duration)
@@ -108,6 +111,7 @@ class App extends Component {
 
     this.selectedCard = this.state.cards[cardId];
     this.selectedCard.originalPosition = { ...this.selectedCard.position };
+    this.selectedCard.element.classList.remove(UNFOCUS_CLASS);
 
     new TWEEN.Tween(this.selectedCard.position)
     .to({ ...cameraPosition, z: cameraPosition.z - 500 }, duration)
