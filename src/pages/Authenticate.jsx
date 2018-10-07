@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { alertActions } from '../actions'
 import { changePage } from '../helpers';
 
 import './styles/auth.css';
@@ -21,9 +22,12 @@ class Page extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const { dispatch } = this.props;
     const { login } = this.state;
     if (login) {
-
+      const { email, password } = this.state;
+      changePage("/discover")
+      dispatch(alertActions.succes("Welcome!"))
     }
   }
 
