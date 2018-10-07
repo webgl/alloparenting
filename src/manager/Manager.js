@@ -1,7 +1,5 @@
 import _ from 'lodash';
 
-import parentsData from '../data/parents';
-
 const UNFOCUS_CLASS = 'unfocus';
 const { THREE, TWEEN } = window;
 
@@ -102,7 +100,7 @@ export default class Manager {
     this.selectedCard.element.classList.remove(UNFOCUS_CLASS);
 
     new TWEEN.Tween(this.selectedCard.position)
-    .to({ ...cameraPosition, z: cameraPosition.z - 500 }, duration)
+    .to({ ...cameraPosition, z: cameraPosition.z - 1000 }, duration)
     .easing(TWEEN.Easing.Exponential.InOut)
     .start();
   };
