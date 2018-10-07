@@ -31,7 +31,7 @@ class Cards extends Component {
     return (
       <div className="Cards">
         {users.map((user, i) => (
-          <div ref={n => this.cards[i] = n}>
+          <div key={i} ref={n => this.cards[i] = n}>
             <Card key={user.email} name={user.name.first.toUpperCase()}
                   picture={user.picture.large} gender={user.gender}
                   location={user.location} />

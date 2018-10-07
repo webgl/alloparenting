@@ -1,5 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
+import axios from 'axios';
+import Card from '../components/Card/Card';
 
 import Manager from '../manager/Manager';
 
@@ -31,7 +33,7 @@ class Discover extends Component {
       <div className="App"
            ref={(n => this.rootNode = n)}>
            {users.map((user, i) => (
-             <div ref={n => this.cards[i] = n}>
+             <div key={i} ref={n => this.cards[i] = n}>
                <Card key={user.email} name={user.name.first.toUpperCase()}
                      picture={user.picture.large} gender={user.gender}
                      location={user.location} />
