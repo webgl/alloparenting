@@ -1,12 +1,12 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 
-import parentsData from '../../data/parents';
-import { Grid, Card } from '../../components';
+import parentsData from '../data/parents';
+import { Grid, Card } from '../components/components';
 
 const { THREE, TWEEN } = window;
 
-class App extends Component {
+class Discover extends Component {
 
   constructor(props) {
     super(props);
@@ -144,4 +144,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Discover;

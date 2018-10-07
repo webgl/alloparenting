@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './alert.css';
 
-class Alert extends Component {
+class Alerts extends Component {
 
    constructor(props) {
       super(props)
@@ -22,4 +22,4 @@ class Alert extends Component {
 }
 
 
-export default Alert;
+export default Alerts;
