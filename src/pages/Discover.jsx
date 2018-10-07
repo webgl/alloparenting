@@ -25,6 +25,7 @@ class Discover extends Component {
         this.manager.createCards(this.cards);
     })
     .catch(console.error)
+    document.getElementById("search-button").onclick = this.manager.filter;
   }
 
   render() {
@@ -38,7 +39,6 @@ class Discover extends Component {
             <Card key={user.email} name={user.name.first}
                   picture={user.picture.large} gender={user.gender}
                   location={user.location} />
-            <button onClick={this.manager.filter}></button>
           </div>
         ))}
       </div>

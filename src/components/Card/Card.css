@@ -20,6 +20,24 @@
   display: block;
 }
 
+.profile .star {
+  position: absolute;
+  top: 50px;
+  z-index: 2;
+  right: 20px;
+  font-size: 20px;
+  color: var(--faint-grey);
+}
+
+.profile .clicked {
+  color: var(--golf-dust);
+}
+
+.profile .star:hover {
+  cursor: pointer;
+  color: var(--golf-dust);
+}
+
 .profile .info {
   position: absolute;
   text-align: left;
