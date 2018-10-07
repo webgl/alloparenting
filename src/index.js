@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { App } from './components/components';
 import * as serviceWorker from './serviceWorker';
+import './reset.css';
 import './index.css';
 
 ReactDOM.render(
