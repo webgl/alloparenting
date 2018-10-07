@@ -29,6 +29,7 @@ class Discover extends Component {
 
   render() {
     const { users } = this.state;
+    this.cards = [];
     return (
       <div className="App"
            ref={(n => this.rootNode = n)}>
