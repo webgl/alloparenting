@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Switch, Router} from 'react-router-dom';
+import { Switch, Router } from 'react-router-dom';
 import { history } from './helpers';
 import { alertActions } from './actions/';
 
@@ -17,37 +17,37 @@ import Discover from './pages/Discover';
 // nothing works
 class AppMain extends Component {
 
-    constructor(props) {
-      super(props);
-      const { dispatch } = this.props;
-      history.listen((location, action) => {
-          dispatch(alertActions.clear());
-      });
-    }
+  constructor(props) {
+    super(props);
+    const { dispatch } = this.props;
+    history.listen((location, action) => {
+      dispatch(alertActions.clear());
+    });
+  }
 
-    render() {
-        const { alert } = this.props;
-        return (
-            <div className="Main">
-                {alert.message && <Alert alertType={alert.type}>{alert.message}</Alert>}
-                <Router history={history}>
-                   <Switch>
-                     <DefaultLayout path="/discover" component={Discover}/>
-                     <DefaultLayout path="/authenticate" component={Authenticate}/>
-                     <DefaultLayout path="/" component={LandingPage}/>
-                 </Switch>
-                </Router>
-            </div>
-        );
-    }
+  render() {
+    const { alert } = this.props;
+    return (
+      <div className="Main">
+        {alert.message && <Alert alertType={alert.type}>{alert.message}</Alert>}
+        <Router history={history}>
+          <Switch>
+            <DefaultLayout path="/discover" component={Discover} />
+            <DefaultLayout path="/authenticate" component={Authenticate} />
+            <DefaultLayout path="/" component={LandingPage} />
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 
 }
 
 function mapStateToProps(state) {
-    const { alert } = state;
-    return {
-        alert
-    };
+  const { alert } = state;
+  return {
+    alert
+  };
 }
 
 const App = connect(mapStateToProps)(AppMain);

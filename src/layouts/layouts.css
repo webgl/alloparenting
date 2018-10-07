@@ -1,7 +1,8 @@
 
 .layout {
   min-height: 100vh;
-  background: var(--primary-color); /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, var(--primary-color), var(--secondary-color));
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  /*background: var(--primary-color); !* fallback for old browsers *!*/
+  /*background: -webkit-linear-gradient(to right, var(--primary-color), var(--secondary-color));*/
+  /*background: linear-gradient(to right, var(--primary-color), var(--secondary-color));*/
+  background: rgba(0, 0, 0, 0);
 }

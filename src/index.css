@@ -19,7 +19,7 @@ html, body {
 }
 
 body {
-  background-color: #111111;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .card {
@@ -42,4 +42,11 @@ body {
 .card.unfocus {
   background: #111111;
   color: #333333;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1000;
 }

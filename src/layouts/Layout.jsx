@@ -3,16 +3,9 @@ import Loading from '../components/loading/Loading';
 import Cards from '../components/Cards/Cards';
 import './layouts.css';
 
-var Style = {
-  width: "100%",
-  // backgroundImage: `url(${Background})`,
-  // backgroundRepeat: 'no-repeat',
-  // backgroundAttachment: 'fixed',
-};
-
 const Layout = (props) => {
   return (
-    <div className="layout" style={Style}>
+    <div className="layout">
       <Loading />
       {props.children}
     </div>
