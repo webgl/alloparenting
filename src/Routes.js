@@ -4,9 +4,6 @@ import { Switch, Router} from 'react-router-dom';
 import { history } from './helpers';
 import { alertActions } from './actions/';
 
-// components
-import {Alerts} from './components/components';
-
 // Route Layouts
 import DefaultLayout from './layouts/DefaultLayout';
 
