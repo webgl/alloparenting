@@ -3,6 +3,9 @@ import _ from 'lodash';
 const UNFOCUS_CLASS = 'unfocus';
 const { THREE, TWEEN } = window;
 
+import vertexShader from './vertex-shader';
+import fragmentShader from './fragment-shader';
+
 var container;
 var camera, scene, renderer;
 var mesh, geometry, material;
@@ -12,9 +15,6 @@ var start_time = Date.now();
 
 var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
-
-import vertexShader from './vertex-shader';
-import fragmentShader from './fragment-shader';
 
 export default class Manager {
 
@@ -89,7 +89,7 @@ export default class Manager {
     this.scene.add(this.clouds = mesh);
 
     renderer = new THREE.WebGLRenderer({ antialias: false });
-    renderer.setClearColor(0xd1efff, 1);
+    renderer.setClearColor(0xddeeff, 1);
     renderer.setSize(width, height);
     node.appendChild(renderer.domElement);
 

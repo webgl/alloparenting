@@ -14,6 +14,13 @@ code {
   monospace;
 }
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 html, body {
   height: 100%;
 }
@@ -45,6 +52,7 @@ body {
 }
 
 canvas {
+  border-radius: 10px;
   position: fixed;
   top: 0;
   left: 0;
