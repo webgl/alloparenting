@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { changePage } from '../helpers';
 
-import './styles/landing-page.css';
+import './styles/auth.css';
 
 class Page extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class Page extends Component {
     event.preventDefault();
     const { login } = this.state;
     if (login) {
-      
+
     }
   }
 
@@ -32,18 +32,24 @@ class Page extends Component {
       if (login) {
         return (
           <div className="auth">
-            <h1>Login</h1>
             <form>
+              <h1>Login</h1>
               <p>Never been here? <button onClick={this.toggleLogin}>Signup</button></p>
+              <label>email</label><input placeholder="user@x.com"/>
+              <label>password</label><input type="password" placeholder="******" />
             </form>
           </div>
         );
       } else {
          return (
            <div className="auth">
-             <h1>Signup</h1>
              <form>
+               <h1>Signup</h1>
                <p>Been here before? <button onClick={this.toggleLogin}>Login</button></p>
+                  <label>first name</label><input placeholder="Dr. Shrimp"/>
+                  <label>last name</label><input placeholder="Puerto Rico"/>
+                  <label>email</label><input placeholder="shrimp@dill.com"/>
+                  <label>zipcode</label><input placeholder="44444"/>
              </form>
            </div>
          );
